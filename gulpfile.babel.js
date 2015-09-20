@@ -19,6 +19,10 @@ let args = minimist(process.argv.slice(2));
 let dirs = config.directories;
 let taskTarget = args.production ? dirs.destination : dirs.temporary;
 
+if (args.production) {
+  config.port = 80;
+}
+
 // Create a new browserSync instance
 let browserSync = browserSyncLib.create();
 
